@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+
+<table>
+    <tr >
+        <th>Rank</th>
+        <th>Poster</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Director</th>
+        <th>Rating</th>
+        <th>Rating's Breakup</th>
+        <th>Link</th>
+    </tr>
+    <% data.Top250Movies.forEach(function (item) { %>
+    <tr>
+
+        <td align="center"><%= item.rank%></td>
+        <td align="center"><img src="<%= item.posterURL%>"></td>
+        <td style="padding-left: 10px"><%= item.title%></td>
+        <td align="center"><%= item.year%></td>
+        <td style="padding-left: 10px"><%= item.director%></td>
+        <td align="center"><%= item.rating%></td>
+        <td align="center"><a href="ratingBreakup?titlecode=<%= item.titleCode%>" title="<%= item.titleCode%>" onclick='function ex() {
+            var titleCode = item.titleCode;
+            console.log("item.titleCode = " + item.titleCode);
+            module.exports.titleCode = titleCode;
+        }'>Rating's Breakup</a></td>
+        <td align="center"><a href="<%= item.link%>">Details</a></td>
+
+    </tr>
+    <% }); %>
+</table>
+</body>
+</html>
