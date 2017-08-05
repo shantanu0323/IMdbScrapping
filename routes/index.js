@@ -11,7 +11,7 @@ var render;
 /* GET home page. */
 router.get('/', function (req, res, next) {
     scrape(render);
-    render = function render() {
+    render = function () {
         var output = require('../output.json');
         res.render('index', {
             title: 'Express',

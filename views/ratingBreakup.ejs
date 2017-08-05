@@ -5,8 +5,26 @@
     <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
-<h1><%= titleCode %></h1>
+<h1><%= title %></h1>
 <p>Welcome to <%= title %></p>
+
+<table>
+    <tr>
+        <th>Rating</th>
+        <th>Votes</th>
+        <th>% Votes</th>
+    </tr>
+    <% for (var i = 10; i >= 1; i--) { %>
+    <tr>
+
+        <td align="center"><%= i %></td>
+        <td># <%= data["rating" + i] %></td>
+        <td align="right" style="padding-right: 10px;"><%= data["percent" + i] %></td>
+
+    </tr>
+    <% } %>
+</table>
+
 
 </body>
 </html>
