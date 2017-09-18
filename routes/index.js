@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
     render = function () {
         var output = require('../output.json');
         res.render('index', {
-            title: 'Express',
+            title: 'Top 250 IMdB Movies',
             data: output,
             sha: 'Shantanu'
         });

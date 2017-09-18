@@ -10,22 +10,29 @@
 </head>
 <body>
 <h1><%= title %></h1>
-<p>Here are the ratings and votes breakup of <%= title %></p>
+<p>Here is the complete Cast and Crew of <strong>'<%= title %>'</strong></p>
+<p> --- Directed By <a href="<%= director.link %>" target="_blank"><strong><%= director.name %></strong></a></p>
+
 <table>
     <tr>
-        <th>Rating</th>
-        <th>Votes</th>
-        <th>% Votes</th>
+        <th>S.No.</th>
+        <th>Photo</th>
+        <th>Actor</th>
+        <th>Character in movie</th>
     </tr>
-    <% for (var i = 10; i >= 1; i--) { %>
+    <%
+    var i = 1;
+    data.Movie.actors.forEach(function (actor) {%>
     <tr>
 
         <td align="center"><%= i %></td>
-        <td># <%= data["rating" + i] %></td>
-        <td align="right" style="padding-right: 10px;"><%= data["percent" + i] %></td>
+        <td align="center"><a href="<%= actor.link %>"><img src="<%= actor.pic %>"></a></td>
+        <td><a href="<%= actor.link %>"><%= actor.name %></a></td>
+        <td><%= actor.character %></td>
 
     </tr>
-    <% } %>
+    <% i++;
+    }); %>
 </table>
 
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>

@@ -3,10 +3,10 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.min.js"></script>
 </head>
 <body>
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+<h1 align="center" style="width: 100%; margin: auto; margin-bottom: 10px"><%= title %></h1>
 
 <table>
     <tr >
@@ -17,6 +17,7 @@
         <th>Director</th>
         <th>Rating</th>
         <th>Rating's Breakup</th>
+        <th>Cast & Crew</th>
         <th>Link</th>
     </tr>
     <% data.Top250Movies.forEach(function (item) { %>
@@ -28,12 +29,17 @@
         <td align="center"><%= item.year%></td>
         <td style="padding-left: 10px"><%= item.director%></td>
         <td align="center"><%= item.rating%></td>
-        <td align="center"><a href="ratingBreakup?titlecode=<%= item.titleCode%>" title="<%= item.titleCode%>" onclick='function ex() {
+        <td align="center"><a href="ratingBreakup?titlecode=<%= item.titleCode%>" target="_blank" title="<%= item.titleCode%>" onclick='function ex() {
             var titleCode = item.titleCode;
             console.log("item.titleCode = " + item.titleCode);
             module.exports.titleCode = titleCode;
         }'>Rating's Breakup</a></td>
-        <td align="center"><a href="<%= item.link%>">Details</a></td>
+        <td align="center"><a href="actors?titlecode=<%= item.titleCode%>" target="_blank" title="<%= item.titleCode%>" onclick='function ex() {
+            var titleCode = item.titleCode;
+            console.log("item.titleCode = " + item.titleCode);
+            module.exports.titleCode = titleCode;
+        }'>Cast and Crew</a></td>
+        <td align="center"><a href="<%= item.link%>" target="_blank">Details</a></td>
 
     </tr>
     <% }); %>
