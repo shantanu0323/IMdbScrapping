@@ -11,7 +11,7 @@ var title;
 var director;
 var done = false;
 var cast;
-fs.
+
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
