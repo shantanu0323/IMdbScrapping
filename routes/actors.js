@@ -84,7 +84,7 @@ function scrape(req, res, callback) {
                     }
                 }
                 cast.actors = actors;
-                json["Movie"] = cast;
+                json["Movies"] = cast;
             })
 
         }
