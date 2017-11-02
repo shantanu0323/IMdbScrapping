@@ -18,7 +18,7 @@ const NO_OF_MOVIES = 250;
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    endUrl = req.param('titlecode');
+    // endUrl = req.param('titlecode');
     render = function () {
         while (!done) {
         }
